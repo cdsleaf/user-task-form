@@ -83,37 +83,53 @@ export function _getTasks() {
   });
 }
 
-export function _addNewUser({ fisrtName, lastName, email, mobile }) {
+export function _addNewUser({ firstName, lastName, email, mobile }) {
   return new Promise((res, rej) => {
+
+    const newId = generateUID();
+    const newUser = {
+      id: newId,
+      firstName,
+      lastName,
+      email,
+      mobile,
+      tasks: []
+    };
+
     setTimeout(() => {
-      const newId = generateUID();
       users = {
         ...users,
-        [newId]: {
-          id: newId,
-          fisrtName,
-          lastName,
-          email,
-          mobile,
-          tasks: []
-        }
+        [newId]: newUser
       }
-    })
+      res(newUser);
+    }, 1000)
   });
 }
 
 export function _addNewTask({ taskName, assignee }) {
   return new Promise((res, rej) => {
+
+    const newId = generateUID();
+    const newTask = {
+      id: newId,
+      taskName,
+      assignee
+    };
+
     setTimeout(() => {
-      const newId = generateUID();
-      tasks = {
-        ...tasks,
-        [newId]: {
-          id: newId,
-          taskName,
-          assignee
+      users = {
+        ...users,
+        [assignee]: {
+          ...users[assignee],
+          tasks: users[assignee].tasks.concat([newId])
         }
       }
-    })
+
+      tasks = {
+        ...tasks,
+        [newId]: newTask
+      }
+      res(newTask);
+    }, 1000)
   })
 }

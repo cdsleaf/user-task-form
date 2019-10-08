@@ -14,10 +14,10 @@ export function getInitialData(){
   .then(([users, tasks]) => ({ users, tasks }));
 }
 
-export function addNewUser() {
-  return _addNewUser();
+export function saveNewUser(newUser) {
+  return _addNewUser(newUser);
 }
 
-export function addNewTask() {
-  return _addNewTask();
+export function saveNewTask(newTask) {
+  return _addNewTask(newTask);
 }

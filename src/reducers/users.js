@@ -1,5 +1,6 @@
 import {
   RECEIVE_USERS,
+  ADD_USER,
 } from './../actions/users'
 
 export default function users( state={}, action){
@@ -8,6 +9,11 @@ export default function users( state={}, action){
       return {
         ...state,
         ...action.users
+      }
+    case ADD_USER: 
+      return {
+        ...state,
+        [action.user.id]: action.user
       }
     default:
       return state
