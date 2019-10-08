@@ -35,13 +35,15 @@ const HeadButtons = styled.div`
 
 const PopUp = styled.div`
   position: fixed;
-  display: ${props => props.open ? "block" : "none"};
+  display: block;
   top: 0;
-  right: 0;
+  right: ${props => props.open ? 0 : "-999px"};
   z-index: 101;
   width: 30%;
   height: 100vh;
   background: white;
+
+  transition-duration: 1s;
 `;
 
 const PopUpHeadButton = styled.div`
