@@ -66,7 +66,7 @@ const App = () => {
   });
 
   const handleSubmitNewUser = (newUser) => {
-    dispatch(addNewUser(newUser));
+    dispatch(addNewUser(newUser, openPopUp));
   }
 
   const openPopUp = () => setOpen(!open); 

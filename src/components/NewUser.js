@@ -29,6 +29,11 @@ export default function NewUser(props){
     handleSubmitNewUser({
       firstName, lastName, mobile, email
     });
+
+    setFirstName("");
+    setLastName("");
+    setMobile("");
+    setEmail("");
   }
 
   return (

@@ -16,10 +16,11 @@ export function handleInitialData() {
   }
 }
 
-export function addNewUser(user) {
+export function addNewUser(user, callBack) {
   return (dispatch) => {
     return saveNewUser(user).then(res => {
       dispatch(addUser(res));
+      callBack();
     });
   }
 }
