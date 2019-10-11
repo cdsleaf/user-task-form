@@ -26,7 +26,12 @@ const AppDiv = styled.div`
 const HeadButtons = styled.div`
   border-bottom: 0.1rem solid grey;
   padding-bottom: 0.5rem;
-  overflow: hidden;
+
+  :after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 
   button {
     float: right;
